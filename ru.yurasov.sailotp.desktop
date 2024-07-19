@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Name=SailOTP
+Icon=ru.yurasov.sailotp
+Exec=ru.yurasov.sailotp
+
+[X-Application]
+Permissions=UserDirs;RemovableMedia;Camera
+OrganizationName=ru.yurasov
+ApplicationName=sailotp
