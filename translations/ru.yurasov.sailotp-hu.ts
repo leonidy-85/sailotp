@@ -176,6 +176,34 @@
     </message>
 </context>
 <context>
+    <name>AppBarMenu</name>
+    <message>
+        <location filename="../qml/components/AppBarMenu.qml" line="8"/>
+        <source>SailOTP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/components/AppBarMenu.qml" line="42"/>
+        <source>About</source>
+        <translation type="unfinished">Névjegy</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/AppBarMenu.qml" line="46"/>
+        <source>Settings</source>
+        <translation type="unfinished">Beállítások</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/AppBarMenu.qml" line="51"/>
+        <source>Export / Import</source>
+        <translation type="unfinished">Exportálás / Importálás</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/AppBarMenu.qml" line="55"/>
+        <source>Add Token</source>
+        <translation type="unfinished">Token hozzáadása</translation>
+    </message>
+</context>
+<context>
     <name>ExportPage</name>
     <message>
         <location filename="../qml/pages/ExportPage.qml" line="64"/>
@@ -299,84 +327,64 @@
 <context>
     <name>MainView</name>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="109"/>
-        <source>About</source>
-        <translation>Névjegy</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/MainView.qml" line="113"/>
-        <source>Settings</source>
-        <translation>Beállítások</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/MainView.qml" line="118"/>
-        <source>Export / Import</source>
-        <translation>Exportálás / Importálás</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/MainView.qml" line="122"/>
-        <source>Add Token</source>
-        <translation>Token hozzáadása</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/MainView.qml" line="136"/>
         <source>Nothing here</source>
         <translation>Itt nincs semmi</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="137"/>
-        <source>Pull down to add a OTP</source>
-        <translation>OTP hozzáadásához húzd le</translation>
+        <location filename="../qml/pages/MainView.qml" line="119"/>
+        <source>Add OTP from the menu.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="178"/>
+        <location filename="../qml/pages/MainView.qml" line="163"/>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="198"/>
+        <location filename="../qml/pages/MainView.qml" line="183"/>
         <source>Deleting</source>
         <translation>Törlés</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="219"/>
-        <location filename="../qml/pages/MainView.qml" line="293"/>
+        <location filename="../qml/pages/MainView.qml" line="204"/>
+        <location filename="../qml/pages/MainView.qml" line="278"/>
         <source>Token for </source>
         <translation>A tokenje ennek: </translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="219"/>
-        <location filename="../qml/pages/MainView.qml" line="293"/>
+        <location filename="../qml/pages/MainView.qml" line="204"/>
+        <location filename="../qml/pages/MainView.qml" line="278"/>
         <source> copied to clipboard</source>
         <translation> a vágólapra másolva</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="289"/>
+        <location filename="../qml/pages/MainView.qml" line="274"/>
         <source>Copy to Clipboard</source>
         <translation>Másolás a vágólapra</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="297"/>
+        <location filename="../qml/pages/MainView.qml" line="282"/>
         <source>Show Token as QR-Code</source>
         <translation>Token megjelenítése QR-kódként</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="302"/>
+        <location filename="../qml/pages/MainView.qml" line="287"/>
         <source>Move up</source>
         <translation>Mozgatás felfelé</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="307"/>
+        <location filename="../qml/pages/MainView.qml" line="292"/>
         <source>Move down</source>
         <translation>Mozgatás lefelé</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="312"/>
+        <location filename="../qml/pages/MainView.qml" line="297"/>
         <source>Edit</source>
         <translation>Szerkesztés</translation>
     </message>
     <message>
-        <location filename="../qml/pages/MainView.qml" line="318"/>
+        <location filename="../qml/pages/MainView.qml" line="303"/>
         <source>Delete</source>
         <translation>Törlés</translation>
     </message>
@@ -392,34 +400,14 @@
 <context>
     <name>ScanOTP</name>
     <message>
-        <location filename="../qml/pages/ScanOTP.qml" line="54"/>
-        <source>Can&apos;t access temporary directory</source>
-        <translation>Az ideiglenes mappa nem érhető el</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/ScanOTP.qml" line="64"/>
+        <location filename="../qml/pages/ScanOTP.qml" line="65"/>
         <source>Add manually</source>
         <translation>Kézi hozzáadás</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ScanOTP.qml" line="71"/>
-        <source>Scan Code</source>
-        <translation>Kód szkennelése</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/ScanOTP.qml" line="71"/>
-        <source>Scanning...</source>
-        <translation>Szkennelés...</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/ScanOTP.qml" line="96"/>
+        <location filename="../qml/pages/ScanOTP.qml" line="121"/>
         <source>No valid Token data found.</source>
-        <translation>Nem található érvényes token-adat.</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/ScanOTP.qml" line="137"/>
-        <source>Tap the picture to start / stop scanning. Pull down to add Token manually.</source>
-        <translation>Érintsd meg a képet a szkennelés elindításához / megállításához. Húzd le a token kézi hozzáadásához.</translation>
+        <translation type="unfinished">Nem található érvényes token-adat.</translation>
     </message>
 </context>
 <context>
