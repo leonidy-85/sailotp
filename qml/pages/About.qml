@@ -94,7 +94,7 @@ Page {
         text: qsTr("Source Code & Issue Tracker")
         anchors.horizontalCenter: parent.horizontalCenter
         onClicked: {
-          Qt.openUrlExternally("https://github.com/seiichiro0185/sailotp/")
+          Qt.openUrlExternally("https://github.com/leonidy-85/sailotp.git/")
         }
       }
       // Spacer
@@ -173,6 +173,22 @@ Page {
       Item {
         width: parent.width
         height: Theme.paddingMedium
+      }
+      Label {
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width
+        font.pixelSize: Theme.fontSizeMedium
+        horizontalAlignment: Text.Center
+        wrapMode: Text.WordWrap
+        text: qsTr("Aurora adaptation:")
+        color: Theme.secondaryHighlightColor
+      }
+      DetailItem {
+//        label: "Brazilian Portuguese"
+        value: "Leonid Yurasov"
+        width: parent.width
+        alignment: Qt.AlignLeft
+        leftMargin: Theme.paddingLarge*2
       }
       Label {
         anchors.horizontalCenter: parent.horizontalCenter
@@ -275,7 +291,6 @@ Page {
         plainText: "\n"+qsTr("SailOTP uses the following third party libs:")+'
           http://caligatio.github.io/jsSHA/
           https://github.com/jlinoff/openssl-aes-cipher/
-          http://sourceforge.net/projects/qzxing/
           http://fukuchi.org/works/qrencode/'
         color: Theme.secondaryHighlightColor
       }

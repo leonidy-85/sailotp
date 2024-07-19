@@ -28,13 +28,16 @@
  */
 
 
-import QtQuick 2.0
+import QtQuick 2.6
 import Sailfish.Silica 1.0
 import "../lib/storage.js" as DB
 import "../lib/crypto.js" as OTP
+import "../components"
 
 Page {
   id: mainPage
+
+    AppBarMenu {}
 
   allowedOrientations: Orientation.All
 
@@ -104,27 +107,6 @@ Page {
   SilicaFlickable {
     anchors.fill: parent
 
-    PullDownMenu {
-      MenuItem {
-        text: qsTr("About")
-        onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
-      }
-      MenuItem {
-        text: qsTr("Settings")
-        visible: true
-        onClicked: pageStack.push(Qt.resolvedUrl("Settings.qml"))
-      }
-      MenuItem {
-        text: qsTr("Export / Import")
-        onClicked: pageStack.push(Qt.resolvedUrl("ExportPage.qml"), {parentPage: mainPage, mode: "export"})
-      }
-      MenuItem {
-        text: qsTr("Add Token")
-        onClicked: pageStack.push(Qt.resolvedUrl("ScanOTP.qml"), {parentPage: mainPage})
-      }
-    }
-
-
     SilicaListView {
       id: otpList
       anchors.fill: parent
@@ -134,7 +116,8 @@ Page {
       ViewPlaceholder {
         enabled: otpList.count == 0
         text: qsTr("Nothing here")
-        hintText: qsTr("Pull down to add a OTP")
+        hintText: qsTr("Add OTP from the menu.")
+
       }
 
       header: Column {
@@ -144,35 +127,37 @@ Page {
           id: headerRow
           height: Theme.itemSizeSmall
           width: parent.width
-          ProgressBar {
-            id: updateProgress
-            anchors.topMargin: Theme.paddingLarge * 1.15
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            height: parent.height
-            width: parent.width * 0.65
-            maximumValue: 29
-            value: 29 - seconds_global
-            // Only show when there are enries
-            visible: appWin.listModel.count
-          }
-          PageHeader {
-            id: header
-            anchors.top: parent.top
-            height: Theme.itemSizeSmall
-            width: parent.width * 0.35
-            title: "SailOTP"
-          }
+//          ProgressBar {
+//            id: updateProgress
+//            anchors.topMargin: Theme.paddingLarge * 1.15
+//            anchors.top: parent.top
+//            anchors.bottom: parent.bottom
+//            height: parent.height
+//            width: parent.width * 0.65
+//            maximumValue: 29
+//            value: 39 - seconds_global
+//            // Only show when there are enries
+//            visible: appWin.listModel.count
+//          }
+//          PageHeader {
+//            id: header
+//            anchors.top: parent.top
+//            height: Theme.itemSizeSmall
+//            width: parent.width * 0.35
+//            title: "SailOTP"
+//          }
         }
         Row {
           id: searchRow
           width: parent.width
+
           SearchField {
             id: searchField
             font.pixelSize: Theme.fontSizeMedium
             width: parent.width
 // This would be useful, but seems to break the button altogether. Perhaps it'll work later?
 //            canHide: true
+            height: Theme.paddingLarge*5
             EnterKey.enabled: false
             inputMethodHints: Qt.ImhNoPredictiveText // Qt.ImhPreferUppercase | Qt.ImhNoAutoUppercase
             placeholderText: qsTr("Search")

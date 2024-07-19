@@ -64,7 +64,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/About.qml" line="275"/>
+        <location filename="../qml/pages/About.qml" line="183"/>
+        <source>Aurora adaptation:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/About.qml" line="291"/>
         <source>SailOTP uses the following third party libs:</source>
         <translation>SailOTP utilizza le seguenti librerie di terzi:</translation>
     </message>
@@ -74,7 +79,7 @@
         <translation>Collaboratori:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/About.qml" line="183"/>
+        <location filename="../qml/pages/About.qml" line="199"/>
         <source>Translators:</source>
         <translation>Traduttori:</translation>
     </message>
@@ -406,7 +411,7 @@
         <translation>Aggiungi manualmente</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ScanOTP.qml" line="121"/>
+        <location filename="../qml/pages/ScanOTP.qml" line="116"/>
         <source>No valid Token data found.</source>
         <translation type="unfinished">Non sono stati trovati dati di Token validi.</translation>
     </message>

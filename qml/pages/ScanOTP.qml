@@ -27,11 +27,12 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import QtQuick 2.0
+import QtQuick 2.6
 import QtMultimedia 5.0
 import Sailfish.Silica 1.0
-import harbour.sailotp.QZXing 2.2
-import harbour.sailotp.FileIO 1.0
+//import ru.yurasov.sailotp.QZXing 2.2
+import ru.yurasov.sailotp.FileIO 1.0
+import Amber.QrFilter 1.0
 import "../lib/urldecoder.js" as URL
 
 Page {
@@ -42,19 +43,19 @@ Page {
   property QtObject parentPage: null
   property bool scanning: false
 
-  Timer {
-    id: scanTimer
-    interval: 100
-    running: false
-    repeat: false
-    onTriggered: {
-      if (fileIO.mkpath(XDG_CACHE_DIR)) {
-        cam.imageCapture.captureToLocation(XDG_CACHE_DIR + "/qrscan.jpg");
-      } else {
-        notify.show(qsTr("Can't access temporary directory"), 3000);
-      }
-    }
-  }
+//  Timer {
+//    id: scanTimer
+//    interval: 500
+//    running: false
+//    repeat: false
+//    onTriggered: {
+//      if (fileIO.mkpath(XDG_CACHE_DIR)) {
+//        cam.imageCapture.captureToLocation(XDG_CACHE_DIR + "/qrscan.jpg");
+//      } else {
+//        notify.show(qsTr("Can't access temporary directory"), 3000);
+//      }
+//    }
+//  }
 
   SilicaFlickable {
     anchors.fill: parent
@@ -68,73 +69,56 @@ Page {
 
     PageHeader {
       id: header
-      title: scanning ? qsTr("Scanning...") : qsTr("Scan Code")
+//      title: scanning ? qsTr("Scanning...") : qsTr("Scan Code")
     }
 
-    Camera {
-      id: cam
+    QrFilter {
+            id: qrFilter
 
-      flash.mode: Camera.FlashOff
-      captureMode: Camera.CaptureStillImage
-      focus.focusMode: Camera.FocusContinuous
-      imageCapture.onImageSaved: { decoder.decodeImageFromFile(path); }
-    }
-
-    QZXing {
-      id: decoder
-
-      onTagFound: {
-        var ret = URL.decode(tag);
-        var len = 6
-        scanning = false
-        if (ret && ret.type !== "" && ret.title !== "" && ret.secret !== "" && (ret.counter !== "" || ret.type === "TOTP")) {
-          if (ret.digits !== "") {
-            len = ret.digits
-          }
-          pageStack.replace(Qt.resolvedUrl("AddOTP.qml"), {parentPage: parentPage, paramLabel: ret.title, paramKey: ret.secret.toUpperCase(), paramType: ret.type, paramCounter: ret.counter, paramLen: len, paramNew: true})
-        } else {
-          notify.show(qsTr("No valid Token data found."), 3000);
+            objectName: "qrFilter"
+            active: true
         }
-      }
 
-      onDecodingFinished: { if (succeeded==false && scanning) scanTimer.start(); }
-    }
+        VideoOutput {
+            id: viewer
 
-    FileIO {
-      id: fileIO
-    }
-
-    VideoOutput {
-      id: prev
-      anchors.horizontalCenter: parent.horizontalCenter
-      anchors.top: header.bottom
-      source: cam
-      MouseArea {
-        anchors.fill: parent
-        onClicked: {
-          if (scanning) {
-            scanning = false;
-          } else {
-            scanning = true;
-            scanTimer.start();
-          }
+            objectName: "viewer"
+            anchors {
+                top: pageHeader.bottom
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+                bottomMargin: Theme.horizontalPageMargin
+            }
+            fillMode: VideoOutput.PreserveAspectFit
+            source: Camera {
+                captureMode: Camera.CaptureVideo
+                focus {
+                    focusMode: CameraFocus.FocusContinuous
+                    focusPointMode: CameraFocus.FocusPointAuto
+                }
+            }
+            filters: [ qrFilter ]
         }
-      }
-    }
 
-    Text {
-      id: text
+        Connections {
+            target: qrFilter
+            onResultChanged: {
+                var ret = URL.decode(qrFilter.result);
+                var len = 6
+                      scanning = false
+                      if (ret && ret.type !== "" && ret.title !== "" && ret.secret !== "" && (ret.counter !== "" || ret.type === "TOTP")) {
+                        if (ret.digits !== "") {
+                          len = ret.digits
+                        }
+                        pageStack.replace(Qt.resolvedUrl("AddOTP.qml"), {parentPage: parentPage, paramLabel: ret.title, paramKey: ret.secret.toUpperCase(), paramType: ret.type, paramCounter: ret.counter, paramLen: len, paramNew: true})
+                      } else {
+                        notify.show(qsTr("No valid Token data found."), 3000);
+                      }
+                  qrFilter.clearResult();
+            }
+        }
 
-      anchors.top: prev.bottom
-      anchors.topMargin: 32
-      anchors.horizontalCenter: parent.horizontalCenter
-      width: parent.width - 2*Theme.paddingLarge
 
-      wrapMode: Text.Wrap
-      maximumLineCount: 4
-      font.pixelSize: Theme.fontSizeSmall
-      color: Theme.primaryColor
-      text: qsTr("Tap the picture to start / stop scanning. Pull down to add Token manually.")
-    }
   }
 }

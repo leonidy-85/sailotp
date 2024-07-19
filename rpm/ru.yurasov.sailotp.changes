@@ -1,3 +1,6 @@
+* Fri July 9 2024 Yurasov Leonid 1.11.1-2
+- Build to Aurora 5.1
+
 * Sun Feb 26 2023 Stefan Brand <sailfish@seiichiro0185.org> 1.11.1-1
 - Fix Empty Token List after Restart for New Installs.
 

@@ -59,7 +59,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/About.qml" line="275"/>
+        <location filename="../qml/pages/About.qml" line="183"/>
+        <source>Aurora adaptation:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/About.qml" line="291"/>
         <source>SailOTP uses the following third party libs:</source>
         <translation>SailOTP käyttää seuraavia kolmannen osapuolen kirjastoja:</translation>
     </message>
@@ -74,7 +79,7 @@
         <translation>(RFC 6238/4226 -yhteensopiva)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/About.qml" line="183"/>
+        <location filename="../qml/pages/About.qml" line="199"/>
         <source>Translators:</source>
         <translation>Kääntäjät:</translation>
     </message>
@@ -405,7 +410,7 @@
         <translation>Lisää käsin</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ScanOTP.qml" line="121"/>
+        <location filename="../qml/pages/ScanOTP.qml" line="116"/>
         <source>No valid Token data found.</source>
         <translation type="unfinished">Kelvollista tunnustietoa ei löytynyt.</translation>
     </message>

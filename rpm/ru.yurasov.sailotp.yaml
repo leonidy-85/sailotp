@@ -1,13 +1,13 @@
-Name: harbour-sailotp
+Name: ru.yurasov.sailotp
 Summary: SailOTP
 Version: 1.11.1
-Release: 1
+Release: 2
 Group: Security
-URL: https://github.com/seiichiro0185/sailotp/
+URL: https://github.com/leonidy-85/sailotp.git
 License: "BSD\t"
 
 Sources:
-  - '%{name}-%{version}.tar.bz2'
+  - '%{name}.%{version}.tar.bz2'
 
 Description: |
   A Sailfish implementation of the One Time Pad algorithm as used by Google Authenticator and a growing number of Websites.
@@ -25,15 +25,15 @@ PkgConfigBR:
   - Qt5Qml
   - Qt5Core
   - Qt5Multimedia
-  - sailfishapp >= 1.0.2
   - libcrypto
 
 Requires:
   - sailfishsilica-qt5 >= 0.10.9
 
 Files:
-  - '%defattr(644, root, root, 755)'
-  - '%attr(755, root, root) %{_bindir}'
+  - '%defattr(-,root,root,-)'
+  - '%{_bindir}/%{name}'
+  - '%defattr(644,root,root,-)'
   - '%{_datadir}/%{name}'
   - '%{_datadir}/applications/%{name}.desktop'
   - '%{_datadir}/icons/hicolor/*/apps/%{name}.png'
