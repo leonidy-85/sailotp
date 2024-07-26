@@ -1,7 +1,7 @@
 Name: ru.yurasov.sailotp
 Summary: SailOTP
 Version: 1.11.1
-Release: 2
+Release: 3
 Group: Security
 URL: https://github.com/leonidy-85/sailotp.git
 License: "BSD\t"
@@ -9,7 +9,7 @@ License: "BSD\t"
 Sources:
   - '%{name}.%{version}.tar.bz2'
 
-Description: |
+Description:
   A Sailfish implementation of the One Time Pad algorithm as used by Google Authenticator and a growing number of Websites.
 
 Configure: none

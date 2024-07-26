@@ -82,7 +82,7 @@ function calcOTP(secret, type, len, diff, counter, period) {
   var key = base32tohex(secret);
   var factor = "";
 
-  if (type.substr(0, 4) == "TOTP") {
+  if (type.substr(0, 4) === "TOTP") {
     // Get current Time in UNIX Timestamp format (Seconds since 01.01.1970 00:00 UTC), and add derivation value
     var epoch = Math.round(new Date().getTime() / 1000.0) + diff;
     // Get last full period Seconds and convert to HEX
@@ -93,7 +93,7 @@ function calcOTP(secret, type, len, diff, counter, period) {
 
   try {
     // Calculate the SHA-1 HMAC Value from time and key
-    var hmacObj = new SHA.jsSHA(factor, 'HEX');
+    var hmacObj = new SHA.JsSHA(factor, 'HEX');
     var hmac = hmacObj.getHMAC(key, 'HEX', 'SHA-1', "HEX");
 
     // Finally convert the HMAC-Value to the corresponding 6-digit token
@@ -103,7 +103,7 @@ function calcOTP(secret, type, len, diff, counter, period) {
     var otp = '';
 
     // Steam has it's own way of creating the code from the result
-    if (type == "TOTP_STEAM") {
+    if (type === "TOTP_STEAM") {
       for (var i = 0; i < 5; i++) {
         otp += steamChars[code % steamChars.length];
         code = Math.floor(code/steamChars.length);

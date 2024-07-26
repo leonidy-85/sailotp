@@ -1074,7 +1074,7 @@ var SUPPORTED_ALGS = 4 | 2 | 1;
      * @param {string=} encoding The text encoding to use to encode the source
      *   string
      */
-    var jsSHA = function(srcString, inputFormat, encoding)
+    var JsSHA = function(srcString, inputFormat, encoding)
     {
         var strBinLen = 0, strToHash = [0], utfType = '', srcConvertRet = null;
 

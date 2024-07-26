@@ -31,8 +31,8 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 import Sailfish.Pickers 1.0
-import harbour.sailotp.FileIO 1.0 // Import FileIO Class
-import harbour.sailotp.QCipher 1.0 // Import FileIO Class
+import ru.yurasov.sailotp.FileIO 1.0 // Import FileIO Class
+import ru.yurasov.sailotp.QCipher 1.0 // Import FileIO Class
 import "../lib/storage.js" as DB // Import the storage library for Config-Access
 
 // Define Layout of the Export / Import Page

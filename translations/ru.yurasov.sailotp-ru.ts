@@ -434,13 +434,13 @@
         <location filename="../qml/pages/Settings.qml" line="56"/>
         <source>Show Token as QR on Tap</source>
         <translatorcomment>Google Translate</translatorcomment>
-        <translation>Показать токен как QR на кране</translation>
+        <translation>Показать токен как QR на экране</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="68"/>
         <source>Hide Tokens and Reveal on Tap</source>
         <translatorcomment>Google Translate</translatorcomment>
-        <translation>Скрыть токены и показать на кране</translation>
+        <translation>Скрыть токены и показать на экране</translation>
     </message>
 </context>
 </TS>
